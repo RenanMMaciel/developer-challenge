@@ -44,6 +44,14 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(components: [:cpu_id, :motherboard_id, memories: [:memory_id, selected_sizes: []], :gpu_id])
+    params.require(:order).permit(
+      :client_name,
+      components: [
+        :cpu_id,
+        :motherboard_id,
+        { memories: [:memory_id, { selected_sizes: [] }] },
+        :gpu_id
+      ]
+    )
   end
 end

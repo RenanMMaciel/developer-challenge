@@ -18,11 +18,11 @@ class Component < ApplicationRecord
 
   def validate_cpu_specifications
     unless specifications.present? && specifications.key?("brand")
-      errors.add(:specifications, "Necessário preencher a marca do processador.")
+      errors.add(:specifications, "Especificações inválidas para processador.")
     end
 
     unless specifications["brand"].is_a?(String)
-      errors.add(:specifications, "Especificações inválidas para CPU: 'brand' deve ser do tipo 'string'.")
+      errors.add(:specifications, "brand é obrigatório e deve ser do tipo string.")
     end
   end
 
@@ -31,32 +31,36 @@ class Component < ApplicationRecord
       errors.add(:specifications, "Especificações inválidas para placa-mãe.")
     end
 
-    unless specifications["supported_cpu_brands"].is_a?(Array)
-      errors.add(:specifications, "Especificações inválidas para placa-mãe: 'supported_cpu_brands' deve ser do tipo 'array'.")
+    unless specifications["supported_cpu_brands"].is_a?(Array) && specifications["supported_cpu_brands"].all? { |brand| brand.is_a?(String) } && !specifications["supported_cpu_brands"].empty?
+      errors.add(:specifications, "supported_cpu_brands é obrigatório e deve ser do tipo array preenchido por strings.")
     end
 
     unless specifications["max_memory_slots"].is_a?(Integer)
-      errors.add(:specifications, "Especificações inválidas para placa-mãe: 'max_memory_slots' deve ser do tipo 'int'.")
+      errors.add(:specifications, "max_memory_slots é obrigatório e deve ser do tipo integer.")
     end
 
     unless specifications["max_memory_size"].is_a?(Integer)
-      errors.add(:specifications, "Especificações inválidas para placa-mãe: 'max_memory_size' deve ser do tipo 'int'.")
+      errors.add(:specifications, "max_memory_size é obrigatório e deve ser do tipo integer.")
     end
 
     unless [true, false].include?(specifications["integrated_video_support"])
-      errors.add(:specifications, "Especificações inválidas para placa-mãe: 'integrated_video_support' deve ser 'true' ou 'false'.")
+      errors.add(:specifications, "integrated_video_support é obrigatório e deve ser true ou false.")
     end
   end
 
   def validate_memory_specifications
-    unless specifications.present? && specifications.key?("available_sizes") && specifications["available_sizes"].is_a?(Array) && specifications["available_sizes"].all? { |size| size.is_a?(Integer) }
-      errors.add(:specifications, "Especificações inválidas para memória: 'available_sizes' é obrigatório e deve ser do tipo 'array'.")
+    unless specifications.present? && specifications.key?("available_sizes")
+      errors.add(:specifications, "Especificações inválidas para memória RAM")
+    end
+
+    unless specifications["available_sizes"].is_a?(Array) && specifications["available_sizes"].all? { |size| size.is_a?(Integer) } && !specifications["available_sizes"].empty?
+      errors.add(:specifications, "available_sizes é obrigatório e deve ser do tipo array preenchido por integers.")
     end
   end
 
   def validate_gpu_specifications
     if specifications.present?
-      errors.add(:specifications, "Especificações inválidas para GPU.")
+      errors.add(:specifications, "Especificações inválidas para placa de vídeo.")
     end
   end
 end
