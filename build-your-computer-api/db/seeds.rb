@@ -1,9 +1,90 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+components = [
+  {
+    name: "Core i5",
+    component_type: "cpu",
+    specifications: {
+      brand: "Intel"
+    }
+  },
+  {
+    name: "Core i7",
+    component_type: "cpu",
+    specifications: {
+      brand: "Intel"
+    }
+  },
+  {
+    name: "Ryzen 5",
+    component_type: "cpu",
+    specifications: {
+      brand: "AMD"
+    }
+  },
+  {
+    name: "Ryzen 7",
+    component_type: "cpu",
+    specifications: {
+      brand: "AMD"
+    }
+  },
+  {
+    name: "Asus ROG",
+    component_type: "motherboard",
+    specifications: {
+      supported_cpu_brands: ["Intel"],
+      max_memory_slots: 2,
+      max_memory_size: 16,
+      integrated_video_support: false
+    }
+  },
+  {
+    name: "Gigabyte Aorus",
+    component_type: "motherboard",
+    specifications: {
+      supported_cpu_brands: ["AMD"],
+      max_memory_slots: 2,
+      max_memory_size: 16,
+      integrated_video_support: false
+    }
+  },
+  {
+    name: "ASRock Steel Legend",
+    component_type: "motherboard",
+    specifications: {
+      supported_cpu_brands: ["Intel", "AMD"],
+      max_memory_slots: 2,
+      max_memory_size: 16,
+      integrated_video_support: true
+    }
+  },
+  {
+    name: "Kingston Hiper X",
+    component_type: "memory",
+    specifications: {
+      available_sizes: [4, 8, 16, 32, 64]
+    }
+  },
+  {
+    name: "Evga Geforce RTX 2060 6GB",
+    component_type: "gpu",
+    specifications: {}
+  },
+  {
+    name: "Asus ROG Strix Geforce RTX 3060 6GB",
+    component_type: "gpu",
+    specifications: {}
+  },
+  {
+    name: "Gigabyte Radeon RX 6600 XT EAGLE 8GB",
+    component_type: "gpu",
+    specifications: {}
+  }
+]
+
+components.each do |component_data|
+  Component.create!(
+    name: component_data[:name],
+    component_type: Component.component_types[component_data[:component_type]], # Mapping string to enum integer
+    specifications: component_data[:specifications]
+  )
+end
