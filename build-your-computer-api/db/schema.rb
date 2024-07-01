@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_18_224900) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_29_152400) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_18_224900) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "client_name"
+    t.string "customer_name"
     t.json "components"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

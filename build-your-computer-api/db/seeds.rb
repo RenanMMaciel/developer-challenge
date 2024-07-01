@@ -1,3 +1,6 @@
+# db/seeds.rb
+ActiveRecord::Base.connection.execute("TRUNCATE TABLE components RESTART IDENTITY")
+
 components = [
   {
     name: "Core i5",
@@ -58,19 +61,19 @@ components = [
     }
   },
   {
-    name: "Kingston Hiper X",
+    name: "Kingston HyperX",
     component_type: "memory",
     specifications: {
       available_sizes: [4, 8, 16, 32, 64]
     }
   },
   {
-    name: "Evga Geforce RTX 2060 6GB",
+    name: "EVGA GeForce RTX 2060 6GB",
     component_type: "gpu",
     specifications: {}
   },
   {
-    name: "Asus ROG Strix Geforce RTX 3060 6GB",
+    name: "Asus ROG Strix GeForce RTX 3060 6GB",
     component_type: "gpu",
     specifications: {}
   },
@@ -84,7 +87,7 @@ components = [
 components.each do |component_data|
   Component.create!(
     name: component_data[:name],
-    component_type: Component.component_types[component_data[:component_type]], # Mapping string to enum integer
+    component_type: Component.component_types[component_data[:component_type]],
     specifications: component_data[:specifications]
   )
 end
