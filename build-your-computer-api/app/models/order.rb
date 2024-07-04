@@ -1,14 +1,19 @@
 class Order < ApplicationRecord
-  validate :validate_components_compatibility, if: :validate_components_existence
+  validate :validate_components_compatibility, if: :validate_customer_name_and_components
 
-  def validate_components_existence
+  def validate_customer_name_and_components
     cpu_id = components["cpu_id"]
     motherboard_id = components["motherboard_id"]
     memories = components["memories"]
     gpu_id = components["gpu_id"]
     errors_found = false
 
-    if components.key?(:cpu_id)
+    if customer_name.blank?
+      errors.add(:order, "The customer name is a required field.")
+      errors_found = true
+    end
+
+    if components.key?("cpu_id")
       unless Component.exists?(id: cpu_id)
         errors.add(:order, "The processor id does not exist.")
         errors_found = true
@@ -21,7 +26,7 @@ class Order < ApplicationRecord
       end
     end
 
-    if components.key?(:motherboard_id)
+    if components.key?("motherboard_id")
       unless Component.exists?(id: motherboard_id)
         errors.add(:order, "The motherboard id does not exist.")
         errors_found = true
@@ -34,23 +39,35 @@ class Order < ApplicationRecord
       end
     end
 
-    if components.key?(:memories)
+    if components.key?("memories")
       memories.each_with_index do |memory, index|
-        memory_id = memory["memory_id"]
-        unless Component.exists?(id: memory_id)
-          errors.add(:order, "The RAM id [#{index}] does not exist.")
-          errors_found = true
-        else
-          memory_component = Component.find(memory_id)
-          if memory_component.component_type != "memory"
-            errors.add(:order, "The RAM id [#{index}] does not correspond to a 'component_type' of type 'memory'.")
+        if memory.key?("memory_id")
+          memory_id = memory["memory_id"]
+          selected_sizes = memory["selected_sizes"]
+
+          unless selected_sizes.present?
+            errors.add(:order, "The 'selected_sizes' field must be present in memory [#{index}].")
             errors_found = true
           end
+
+          if Component.exists?(id: memory_id)
+            memory_component = Component.find(memory_id)
+            unless memory_component.component_type == "memory"
+              errors.add(:order, "The RAM id does not correspond to a 'component_type' of type 'memory' [#{index}] .")
+              errors_found = true
+            end
+          else
+            errors.add(:order, "The RAM id does not exist [#{index}].")
+            errors_found = true
+          end
+        else
+          errors.add(:order, "The 'memory_id' field is missing in memory [#{index}].")
+          errors_found = true
         end
       end
     end
 
-    if components.key?(:gpu_id)
+    if components.key?("gpu_id")
       unless Component.exists?(id: gpu_id)
         errors.add(:order, "The graphics card id does not exist.")
         errors_found = true

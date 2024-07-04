@@ -1,5 +1,6 @@
 # db/seeds.rb
 ActiveRecord::Base.connection.execute("TRUNCATE TABLE components RESTART IDENTITY")
+ActiveRecord::Base.connection.execute("TRUNCATE TABLE orders RESTART IDENTITY")
 
 components = [
   {

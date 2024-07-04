@@ -63,13 +63,12 @@ class OrdersController < ApplicationController
   end
 
   def order_params_present_and_valid?
-    order_params_present? && order_params_valid_types?
+    order_params_keys_present? && order_params_valid_types?
   end
 
-  def order_params_present?
-    params.key?(:order) &&
+  def order_params_keys_present?
     params[:order].key?(:customer_name) &&
-    params[:order].key?(:components) && params[:order][:components].present?
+    params[:order].key?(:components)
   end
 
   def order_params_valid_types?
@@ -80,8 +79,12 @@ class OrdersController < ApplicationController
     components.is_a?(Hash) &&
     (!components.key?(:cpu_id) || components[:cpu_id].is_a?(Integer)) &&
     (!components.key?(:motherboard_id) || components[:motherboard_id].is_a?(Integer)) &&
-    (!components.key?(:gpu_id) || components[:gpu_id].is_a?(Integer)) &&
     (components[:memories].nil? || (components[:memories].is_a?(Array) &&
-      components[:memories].all? { |memory| memory.is_a?(Hash) && memory[:memory_id].is_a?(Integer) && memory[:selected_sizes].is_a?(Array) }))
+      components[:memories].all? { |memory| memory.is_a?(Hash) && memory[:memory_id].is_a?(Integer) &&
+        memory[:selected_sizes].is_a?(Array) && memory[:selected_sizes].present? &&
+        memory[:selected_sizes].all? { |size| size.is_a?(Integer) }
+      }
+    ))
+    (!components.key?(:gpu_id) || components[:gpu_id].is_a?(Integer))
   end
 end

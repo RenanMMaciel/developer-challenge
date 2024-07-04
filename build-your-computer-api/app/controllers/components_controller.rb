@@ -65,7 +65,6 @@ class ComponentsController < ApplicationController
   end
 
   def components_params_present?
-    params.key?(:component) &&
     params[:component].key?(:name) && params[:component][:name].present? &&
     params[:component].key?(:component_type) && params[:component][:component_type].present? &&
     params[:component].key?(:specifications) && params[:component][:specifications].present?
@@ -112,7 +111,8 @@ class ComponentsController < ApplicationController
     specifications[:max_memory_slots].is_a?(Integer) &&
     specifications.key?(:max_memory_size) && specifications[:max_memory_size].present? &&
     specifications[:max_memory_size].is_a?(Integer) &&
-    specifications.key?(:integrated_video_support) && [true, false].include?(specifications[:integrated_video_support])
+    specifications.key?(:integrated_video_support) && specifications[:integrated_video_support].present? &&
+    [true, false].include?(specifications[:integrated_video_support])
   end
 
   def validate_memory(specifications)
