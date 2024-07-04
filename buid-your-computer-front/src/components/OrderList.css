@@ -1,0 +1,26 @@
+.order-list-container {
+  max-height: 50%;
+  max-weight: 25%;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.order-list-container > li {
+  list-style-type: none;
+}
+
+.order-list-container > ul {
+  list-style-type: none;
+}
+
+.order-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
