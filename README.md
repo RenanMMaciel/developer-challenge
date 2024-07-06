@@ -14,10 +14,10 @@
     ```
 
   - Accessing the API folder, configuring database.yml, installing dependencies, creating a database, running migrates and seeds, and starting the API on port 3000.
-  - In the database.yml file, you should put the username and password of the postgres user.
-    ```bash
-    cd build-your-computer-api/ && cp config/database.yml.example config/database.yml && bundle install && rails db:create && rails db:migrate && rails db:seed && rails s
-    ```
+    - In the database.yml file, you should put the username and password of the postgres user.
+      ```bash
+      cd build-your-computer-api/ && cp config/database.yml.example config/database.yml && bundle install && rails db:create && rails db:migrate && rails db:seed && rails s
+      ```
 
   - Go back to the coreplan-developer-challenge folder by starting another terminal.
 
