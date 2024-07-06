@@ -1,25 +1,25 @@
 ### Build Your Computer
 
-### Requisitos
+### Requirements
   - Ruby 3.3.0
   - Rails 7.1.3.2
   - Node
   - Git
 
-### Comandos
-  - Clonando e acesso do repositório:
+### Commands
+  - Cloning and accessing the repository:
     ```bash
     git clone https://github.com/RenanMMaciel/coreplan-developer-challenge.git && cd coreplan-developer-challenge
     ```
 
-  - Acessando pasta da API, configurando database.yml, instalando dependências, criando banco, rodando migrates e seeds, e iniciando API na porta 3000.
+  - Accessing the API folder, configuring database.yml, installing dependencies, creating a database, running migrates and seeds, and starting the API on port 3000.
     ```bash
     cd build-your-computer-api/ && cp config/database.yml.example config/database.yml && bundle install && rails db:create && rails db:migrate && rails db:seed && rails s
     ```
 
-  - Volte para a pasta coreplan-developer-challenge iniciando outro terminal
+  - Go back to the coreplan-developer-challenge folder by starting another terminal.
 
-  - Acessando pasta do FRONT, instalando dependências e iniciando FRONT na porta 3001
+  - Accessing the FRONT folder, installing dependencies and starting FRONT on port 3001.
     ```bash
     cd build-your-computer-front/ && npm i && npm start
     ```
