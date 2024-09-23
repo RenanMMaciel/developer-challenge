@@ -80,29 +80,35 @@
           }
           ```
 
-  - Orders `/components`
-    - JSON Example
-      ```json
-      {
-        "customer_name": "Pedro",
-        "components": {
-          "cpu_id": 1,
-          "motherboard_id": 5,
-          "memories": [
-              {
-                  "memory_id": 8,
-                  "selected_sizes": [
-                      8
-                  ]
-              },
-              {
-                  "memory_id": 8,
-                  "selected_sizes": [
-                      8
-                  ]
-              }
-          ],
-          "gpu_id": 9
+  - Orders `/orders`
+    - | Método  | Rota           | Descrição                     |
+      |---------|----------------|-------------------------------|
+      | GET     | `/orders`      | Retorna uma lista de pedidos. |
+      | POST    | `/orders`      | Cria um novo pedido.          |
+      | PUT     | `/orders/{id}` | Atualiza um pedido específico.|
+      | DELETE  | `/orders/{id}`  | Remove um pedido específico.  |
+      - JSON Example
+        ```json
+        {
+          "customer_name": "Pedro",
+          "components": {
+            "cpu_id": 1,
+            "motherboard_id": 5,
+            "memories": [
+                {
+                    "memory_id": 8,
+                    "selected_sizes": [
+                        8
+                    ]
+                },
+                {
+                    "memory_id": 8,
+                    "selected_sizes": [
+                        8
+                    ]
+                }
+            ],
+            "gpu_id": 9
+          }
         }
-      }
-      ```
+        ```
