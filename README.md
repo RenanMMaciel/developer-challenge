@@ -28,7 +28,7 @@
 
 ### Endpoints
   - Components `/components`
-    - Payloads
+    - JSON Example
       - CPU
         ```json
         {
@@ -75,7 +75,7 @@
         ```
 
   - Orders `/components`
-    - Payloads
+    - JSON Example
       ```json
       {
         "customer_name": "Pedro",
