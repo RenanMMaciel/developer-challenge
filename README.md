@@ -28,73 +28,75 @@
 
 ### Endpoints
   - Components `/components`
-    - CPU
-      ```json
-      {
-        "name": "Core i5",
-        "component_type": "cpu",
-        "specifications": {
-          "brand": "Intel"
+    - Payloads
+      - CPU
+        ```json
+        {
+          "name": "Core i5",
+          "component_type": "cpu",
+          "specifications": {
+            "brand": "Intel"
+          }
         }
-      }
-      ```
-
-    - Motherboard
-      ```json
-      {
-        "name": "Asus ROG",
-        "component_type": "motherboard",
-        "specifications": {
-          "supported_cpu_brands": ["Intel"],
-          "max_memory_slots": 2,
-          "max_memory_size": 16,
-          "integrated_video_support": false
+        ```
+  
+      - Motherboard
+        ```json
+        {
+          "name": "Asus ROG",
+          "component_type": "motherboard",
+          "specifications": {
+            "supported_cpu_brands": ["Intel"],
+            "max_memory_slots": 2,
+            "max_memory_size": 16,
+            "integrated_video_support": false
+          }
         }
-      }
-      ```
-
-    - Memory
-      ```json
-      {
-        "name": "Kingston HyperX",
-        "component_type": "memory",
-        "specifications": {
-          "available_sizes": [4, 8, 16, 32, 64]
+        ```
+  
+      - Memory
+        ```json
+        {
+          "name": "Kingston HyperX",
+          "component_type": "memory",
+          "specifications": {
+            "available_sizes": [4, 8, 16, 32, 64]
+          }
         }
-      }
-      ```
-
-    - GPU
-      ```json
-      {
-        "name": "Evga Geforce RTX 2060 6GB",
-        "component_type": "gpu",
-        "specifications": {}
-      }
-      ```
+        ```
+  
+      - GPU
+        ```json
+        {
+          "name": "Evga Geforce RTX 2060 6GB",
+          "component_type": "gpu",
+          "specifications": {}
+        }
+        ```
 
   - Orders `/components`
-    ```json
-    {
-      "customer_name": "Pedro",
-      "components": {
-        "cpu_id": 1,
-        "motherboard_id": 5,
-        "memories": [
-            {
-                "memory_id": 8,
-                "selected_sizes": [
-                    8
-                ]
-            },
-            {
-                "memory_id": 8,
-                "selected_sizes": [
-                    8
-                ]
-            }
-        ],
-        "gpu_id": 9
+    - Payloads
+      ```json
+      {
+        "customer_name": "Pedro",
+        "components": {
+          "cpu_id": 1,
+          "motherboard_id": 5,
+          "memories": [
+              {
+                  "memory_id": 8,
+                  "selected_sizes": [
+                      8
+                  ]
+              },
+              {
+                  "memory_id": 8,
+                  "selected_sizes": [
+                      8
+                  ]
+              }
+          ],
+          "gpu_id": 9
+        }
       }
-    }
-    ```
+      ```
