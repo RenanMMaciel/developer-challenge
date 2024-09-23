@@ -28,51 +28,57 @@
 
 ### Endpoints
   - Components `/components`
-    - JSON Example
-      - CPU
-        ```json
-        {
-          "name": "Core i5",
-          "component_type": "cpu",
-          "specifications": {
-            "brand": "Intel"
+    - | Método  | Rota               | Descrição                         |
+      |---------|--------------------|-----------------------------------|
+      | GET     | `/components`      | Retorna uma lista de componentes. |
+      | POST    | `/components`      | Cria um novo componente.          |
+      | PUT     | `/components/{id}` | Atualiza um componente específico.|
+      | DELETE  | `/components{id}`  | Remove um componente específico.  |
+      - JSON Example
+        - CPU
+          ```json
+          {
+            "name": "Core i5",
+            "component_type": "cpu",
+            "specifications": {
+              "brand": "Intel"
+            }
           }
-        }
-        ```
-  
-      - Motherboard
-        ```json
-        {
-          "name": "Asus ROG",
-          "component_type": "motherboard",
-          "specifications": {
-            "supported_cpu_brands": ["Intel"],
-            "max_memory_slots": 2,
-            "max_memory_size": 16,
-            "integrated_video_support": false
+          ```
+    
+        - Motherboard
+          ```json
+          {
+            "name": "Asus ROG",
+            "component_type": "motherboard",
+            "specifications": {
+              "supported_cpu_brands": ["Intel"],
+              "max_memory_slots": 2,
+              "max_memory_size": 16,
+              "integrated_video_support": false
+            }
           }
-        }
-        ```
-  
-      - Memory
-        ```json
-        {
-          "name": "Kingston HyperX",
-          "component_type": "memory",
-          "specifications": {
-            "available_sizes": [4, 8, 16, 32, 64]
+          ```
+    
+        - Memory
+          ```json
+          {
+            "name": "Kingston HyperX",
+            "component_type": "memory",
+            "specifications": {
+              "available_sizes": [4, 8, 16, 32, 64]
+            }
           }
-        }
-        ```
-  
-      - GPU
-        ```json
-        {
-          "name": "Evga Geforce RTX 2060 6GB",
-          "component_type": "gpu",
-          "specifications": {}
-        }
-        ```
+          ```
+    
+        - GPU
+          ```json
+          {
+            "name": "Evga Geforce RTX 2060 6GB",
+            "component_type": "gpu",
+            "specifications": {}
+          }
+          ```
 
   - Orders `/components`
     - JSON Example
