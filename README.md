@@ -1,11 +1,11 @@
 ### Build Your Computer
 
 ### Requirements
-  - Ruby 3.3.0
-  - Rails 7.1.3.2
-  - Node
-  - PostgreSQL
-  - Git
+  - [Git](https://git-scm.com/downloads)
+  - [Ruby 3.3.0](https://www.ruby-lang.org/en/downloads/)
+  - [Rails 7.1.3.2](https://rubyonrails.org/)
+  - [PostgreSQL](https://www.postgresql.org/download/)
+  - [Node.js](https://nodejs.org/en/download/package-manager)
 
 ### Commands
   - Cloning and accessing the repository:
