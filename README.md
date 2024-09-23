@@ -10,7 +10,7 @@
 ### Commands
   - Cloning and accessing the repository:
     ```bash
-    git clone https://github.com/RenanMMaciel/coreplan-developer-challenge.git && cd coreplan-developer-challenge
+    git clone https://github.com/RenanMMaciel/developer-challenge.git && cd developer-challenge
     ```
 
   - Accessing the API folder, configuring database.yml, installing dependencies, creating a database, running migrates and seeds, and starting the API on port 3000.
@@ -19,7 +19,7 @@
       cd build-your-computer-api/ && cp config/database.yml.example config/database.yml && bundle install && rails db:create && rails db:migrate && rails db:seed && rails s
       ```
 
-  - Go back to the coreplan-developer-challenge folder by starting another terminal.
+  - Go back to the developer-challenge folder by starting another terminal.
 
   - Accessing the FRONT folder, installing dependencies and starting FRONT on port 3001.
     ```bash
@@ -28,12 +28,12 @@
 
 ### Endpoints
   - Components `/components`
-    - | Método  | Rota               | Descrição                         |
+    - | Method  | Route              | Description                       |
       |---------|--------------------|-----------------------------------|
-      | GET     | `/components`      | Retorna uma lista de componentes. |
-      | POST    | `/components`      | Cria um novo componente.          |
-      | PUT     | `/components/{id}` | Atualiza um componente específico.|
-      | DELETE  | `/components{id}`  | Remove um componente específico.  |
+      | GET     | `/components`      | Returns a list of components.     |
+      | POST    | `/components`      | Creates a new component.          |
+      | PUT     | `/components/{id}` | Updates a specific component.     |
+      | DELETE  | `/components{id}`  | Remove a specific component.      |
       - JSON Example
         - CPU
           ```json
@@ -81,12 +81,12 @@
           ```
 
   - Orders `/orders`
-    - | Método  | Rota           | Descrição                     |
+    - | Method  | Route           | Description                  |
       |---------|----------------|-------------------------------|
-      | GET     | `/orders`      | Retorna uma lista de pedidos. |
-      | POST    | `/orders`      | Cria um novo pedido.          |
-      | PUT     | `/orders/{id}` | Atualiza um pedido específico.|
-      | DELETE  | `/orders/{id}`  | Remove um pedido específico.  |
+      | GET     | `/orders`      | Returns a list of orders.     |
+      | POST    | `/orders`      | Creates a new order.          |
+      | PUT     | `/orders/{id}` | Updates a specific order.     |
+      | DELETE  | `/orders/{id}` | Remove a specific order.      |
       - JSON Example
         ```json
         {
