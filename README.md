@@ -1,4 +1,4 @@
-### Build Your Computer
+### Developer Challenge - Coreplan Gestão e Tecnologia
 
 ### Requirements
   - [Git](https://git-scm.com/downloads)
