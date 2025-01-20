@@ -34,7 +34,7 @@
       | POST    | `/components`      | Creates a new component.          |
       | PUT     | `/components/{id}` | Updates a specific component.     |
       | DELETE  | `/components{id}`  | Remove a specific component.      |
-      - JSON Example
+      - JSON Example:
         - CPU
           ```json
           {
@@ -87,7 +87,7 @@
       | POST    | `/orders`      | Creates a new order.          |
       | PUT     | `/orders/{id}` | Updates a specific order.     |
       | DELETE  | `/orders/{id}` | Remove a specific order.      |
-      - JSON Example
+      - JSON Example:
         ```json
         {
           "customer_name": "Pedro",
