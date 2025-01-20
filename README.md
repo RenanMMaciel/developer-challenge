@@ -14,12 +14,12 @@
     ```
 
   - Accessing the API folder, configuring database.yml, installing dependencies, creating a database, running migrates and seeds, and starting the API on port 3000.
-    - In the database.yml file, you should put the username and password of the postgres user.
+    - In the database.yml file, you should put the username and password of the postgres user, and then run the command below:
       ```bash
       cd build-your-computer-api/ && cp config/database.yml.example config/database.yml && bundle install && rails db:create && rails db:migrate && rails db:seed && rails s
       ```
 
-  - Go back to the developer-challenge folder by starting another terminal.
+  - Go back to the technical-challenge-developer-challenge folder by starting another terminal.
 
   - Accessing the FRONT folder, installing dependencies and starting FRONT on port 3001.
     ```bash
