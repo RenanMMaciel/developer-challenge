@@ -33,7 +33,7 @@
       | GET     | `/components`      | Returns a list of components.     |
       | POST    | `/components`      | Creates a new component.          |
       | PUT     | `/components/{id}` | Updates a specific component.     |
-      | DELETE  | `/components{id}`  | Remove a specific component.      |
+      | DELETE  | `/components/{id}` | Remove a specific component.      |
       - JSON Example:
         - CPU
           ```json
