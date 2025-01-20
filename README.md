@@ -10,7 +10,7 @@
 ### Commands
   - Cloning and accessing the repository:
     ```bash
-    git clone https://github.com/RenanMMaciel/developer-challenge.git && cd developer-challenge
+    git clone https://github.com/RenanMMaciel/technical-challenge-developer-challenge.git && cd technical-challenge-developer-challenge
     ```
 
   - Accessing the API folder, configuring database.yml, installing dependencies, creating a database, running migrates and seeds, and starting the API on port 3000.
